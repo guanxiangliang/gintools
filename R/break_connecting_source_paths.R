@@ -23,7 +23,7 @@
 #' corresponds to a row in the red.sites object.
 #'
 #' @param bias either "upsteam" or "downstream", designating which position to
-#' choose if other decision metrics are tied.
+#' choose if othr decision metrics are tied.
 #'
 #' @examples
 #' gr <- generate_test_granges(stdev = 3)
