@@ -5,7 +5,7 @@
 #'
 #' @description Given a list of unique integration site positions (reduced
 #' GRanges object) and a directed graph of connected components, this function
-#' identifies clusters where source nodes are within a gap distance away from
+#' identifie clusters where source nodes are within a gap distance away from
 #' each other, and connects the source nodes with a directional edge, based
 #' first on abundance, and secondly on an upstream bias for tie breaking.
 #'
