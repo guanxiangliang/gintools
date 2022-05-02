@@ -72,7 +72,7 @@ resolve_cluster_sources <- function(red.sites, graph, bias){
   src_nodes <- sources(graph)
   sources_p_clus <- IRanges::IntegerList(split(
     src_nodes, igraph::clusters(graph)$membership[src_nodes]))
-  clus_w_multi_sources <- sources_p_clus[S4Vectors::lengths(sources_p_clus) > 1]
+  clus_w_multi_sources <- sources_p_clus[lengths(sources_p_clus) > 1]
 
   if(length(clus_w_multi_sources) > 0){
     if(bias == "upstream"){
@@ -80,7 +80,7 @@ resolve_cluster_sources <- function(red.sites, graph, bias){
           node = unlist(clus_w_multi_sources),
           clus = as.numeric(S4Vectors::Rle(
             values = seq_along(clus_w_multi_sources),
-            lengths = S4Vectors::lengths(clus_w_multi_sources)))) %>%
+            lengths = lengths(clus_w_multi_sources)))) %>%
         dplyr::mutate(abund = red.sites[node]$abund) %>%
         dplyr::group_by(clus) %>%
         dplyr::mutate(
@@ -100,7 +100,7 @@ resolve_cluster_sources <- function(red.sites, graph, bias){
         node = unlist(clus_w_multi_sources),
         clus = as.numeric(S4Vectors::Rle(
           values = seq_along(clus_w_multi_sources),
-          lengths = S4Vectors::lengths(clus_w_multi_sources)))) %>%
+          lengths = lengths(clus_w_multi_sources)))) %>%
         dplyr::mutate(
           abund = red.sites[node]$abund) %>%
         dplyr::group_by(clus) %>%
