@@ -76,7 +76,7 @@ standardize_sites <- function(input.sites, counts.col = NULL, min.gap = 1L,
   red_counts <- red_counts[unlist(red_sites$revmap),] %>%
     dplyr::mutate(grp = as.numeric(S4Vectors::Rle(
       values = seq_along(red_sites),
-      lengths = S4Vectors::lengths(red_sites$revmap)))) %>%
+      lengths = lengths(red_sites$revmap)))) %>%
     dplyr::group_by(grp) %>%
     dplyr::summarise(abund = sum(counts)) %>%
     dplyr::ungroup()
@@ -199,7 +199,7 @@ standardize_sites <- function(input.sites, counts.col = NULL, min.gap = 1L,
   sites <- sites[unlist(IRanges::as.list(red_sites$revmap))]
   sites$clus.id <- as.numeric(S4Vectors::Rle(
     igraph::clusters(g)$membership,
-    S4Vectors::lengths(red_sites$revmap)))
+    lengths(red_sites$revmap)))
   sites$called.pos <- ifelse(
     GenomicRanges::strand(sites) == "+",
     GenomicRanges::start(sites),
