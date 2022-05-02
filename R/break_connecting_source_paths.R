@@ -70,7 +70,7 @@ break_connecting_source_paths <- function(red.sites, graph, bias){
   src_nodes <- sources(graph)
   sources_p_clus <- IRanges::IntegerList(split(
     src_nodes, igraph::clusters(graph)$membership[src_nodes]))
-  clus_w_multi_sources <- sources_p_clus[S4Vectors::lengths(sources_p_clus) > 1]
+  clus_w_multi_sources <- sources_p_clus[lengths(sources_p_clus) > 1]
 
   if(length(clus_w_multi_sources) > 0){
     adj_pairs <- do.call(c, lapply(clus_w_multi_sources, function(x){
