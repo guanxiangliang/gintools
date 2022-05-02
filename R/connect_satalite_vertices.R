@@ -11,7 +11,7 @@
 #' node in the cluster to the 'satalite' node, but directionality is determined
 #' first by abundance and secondly by an upstream bias.
 #'
-#' @usage
+#' @usag
 #' connect_satalite_vertices(red.sites, graph, gap, bais)
 #'
 #' @param red.sites GRanges object which has been reduced to single nt positions
