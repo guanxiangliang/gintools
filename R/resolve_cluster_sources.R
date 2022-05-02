@@ -23,7 +23,7 @@
 #' @param bias either "upsteam" or "downstream", designating which position to
 #' choose if other decision metrics are tied.
 #'
-#' @examples
+#' @example
 #' gr <- gintools:::generate_test_granges(stdev = 3)
 #' red.sites <- reduce(
 #'   flank(gr, -1, start = TRUE),
